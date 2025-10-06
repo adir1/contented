@@ -115,3 +115,25 @@ This feature enables a local-first frontend web application built with Preact an
 2. WHEN I want to see recent unscored videos THEN the system SHALL provide an optional toggle to show "awaiting scoring" content
 3. WHEN displaying unscored videos THEN the system SHALL clearly indicate their "awaiting scoring" status with appropriate visual cues
 4. WHEN the 24-hour period expires THEN the system SHALL automatically move videos to the main feed and begin scoring calculations
+
+### Requirement 11
+
+**User Story:** As a user, I want to filter videos by mood categories, so that I can find content that matches my current emotional state or desired experience.
+
+#### Acceptance Criteria
+
+1. WHEN videos are processed on the server THEN the system SHALL assign one of six predefined mood values: Learn, Fun, Love, Play, Discover, Reflect
+2. WHEN determining video mood THEN the system SHALL analyze channel description, video description, and subtitles text (if available) using OpenAI API with a predefined mood classification prompt
+3. WHEN I want to filter by mood THEN the system SHALL provide mood filter options in the user interface allowing single or multiple mood selection
+4. WHEN mood filtering is applied THEN the system SHALL display only videos matching the selected mood categories
+
+### Requirement 12
+
+**User Story:** As a user, I want to see recommended videos based on mood and score, so that I can easily find high-quality content that matches my preferences.
+
+#### Acceptance Criteria
+
+1. WHEN I enable the Recommended filter THEN the system SHALL sort videos by score from high to low within the current view
+2. WHEN I combine Recommended filter with mood selection THEN the system SHALL first filter by selected mood(s) and then sort the results by score high-to-low
+3. WHEN Recommended filter is active THEN the system SHALL clearly indicate the sorting method in the user interface
+4. WHEN no mood is selected with Recommended filter THEN the system SHALL show all videos sorted by score high-to-low
