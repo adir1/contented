@@ -2,25 +2,37 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $_app from "./routes/_app.tsx";
 import * as $api_auth_callback from "./routes/api/auth/callback.ts";
 import * as $api_auth_login from "./routes/api/auth/login.ts";
 import * as $api_auth_logout from "./routes/api/auth/logout.ts";
 import * as $api_auth_status from "./routes/api/auth/status.ts";
 import * as $api_test_protected from "./routes/api/test/protected.ts";
+import * as $api_youtube_stats from "./routes/api/youtube/stats.ts";
+import * as $api_youtube_subscriptions from "./routes/api/youtube/subscriptions.ts";
+import * as $api_youtube_video_details from "./routes/api/youtube/video-details.ts";
+import * as $api_youtube_videos from "./routes/api/youtube/videos.ts";
 import * as $index from "./routes/index.tsx";
-
-import { type Manifest } from "$fresh/server.ts";
+import * as $AuthManager from "./islands/AuthManager.tsx";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
+    "./routes/_app.tsx": $_app,
     "./routes/api/auth/callback.ts": $api_auth_callback,
     "./routes/api/auth/login.ts": $api_auth_login,
     "./routes/api/auth/logout.ts": $api_auth_logout,
     "./routes/api/auth/status.ts": $api_auth_status,
     "./routes/api/test/protected.ts": $api_test_protected,
+    "./routes/api/youtube/stats.ts": $api_youtube_stats,
+    "./routes/api/youtube/subscriptions.ts": $api_youtube_subscriptions,
+    "./routes/api/youtube/video-details.ts": $api_youtube_video_details,
+    "./routes/api/youtube/videos.ts": $api_youtube_videos,
     "./routes/index.tsx": $index,
   },
-  islands: {},
+  islands: {
+    "./islands/AuthManager.tsx": $AuthManager,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
